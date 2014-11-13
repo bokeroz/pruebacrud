@@ -1,0 +1,32 @@
+<?php
+
+
+$title = 'CRUD';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+    <a href="<?php echo $this->url('usuarios', array('action'=>'add'));?>"> Add </a>
+</p>
+<table class="table">
+<tr>
+    <th>Usuario</th>
+    <th>Puesto</th>
+    <th>Area</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach ($usuario as $usuarios) : ?>
+<tr>
+    <td><?php echo $this->escapeHtml($usuarios->nombre);?></td>
+    <td><?php echo $this->escapeHtml($usuarios->puesto);?></td>
+    <td><?php echo $this->escapeHtml($usuarios->area);?></td>
+
+    <td>
+        <a href="<?php echo $this->url('usuarios',
+            array('action'=>'edit', 'id' => $usuarios->id));?>">Edit</a>
+        <a href="<?php echo $this->url('usuarios',
+            array('action'=>'delete', 'id' => $usuarios->id));?>">Delete</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>
